@@ -2,16 +2,17 @@
 @source '../**/*.{js,jsx}';
 
 :root {
-  --paper: #faf7f2;
-  --paper-2: #f4efe7;
-  --ink: #211d1a;
-  --ink-soft: #4c453e;
-  --muted: #7a7167;
-  --line: #e7dfd3;
-  --line-strong: #d8cdbd;
-  --accent: #a3533f;
-  --accent-strong: #7d3c2d;
-  --accent-soft: #f4e4de;
+  --paper: #11100d;
+  --paper-2: #15130f;
+  --surface: #1a1612;
+  --ink: #f5f2ec;
+  --ink-soft: #d8d1c0;
+  --muted: #b9b0a0;
+  --line: rgba(245, 242, 236, 0.14);
+  --line-strong: rgba(245, 242, 236, 0.24);
+  --accent: #d9b98c;
+  --accent-strong: #f1d9a3;
+  --accent-soft: rgba(217, 185, 140, 0.16);
   --whatsapp: #22c55e;
   --whatsapp-strong: #16a34a;
 }
@@ -19,6 +20,7 @@
 @theme inline {
   --color-paper: var(--paper);
   --color-paper-2: var(--paper-2);
+  --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-muted: var(--muted);
@@ -40,7 +42,7 @@
   }
 
   body {
-    background: var(--paper);
+    background: radial-gradient(120% 120% at 50% 0%, #14120e 0%, #0c0b09 100%);
     color: var(--ink);
     font-family: var(--font-sans);
     font-feature-settings: 'ss01';

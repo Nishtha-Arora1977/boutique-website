@@ -1,53 +1,45 @@
 import Reveal from './Reveal';
-import { categories, brand } from '../data/shop';
-import { waLink } from '../lib/whatsapp';
+import { categories } from '../data/shop';
+import { categories as images } from '../data/images';
 
 export default function Categories() {
   return (
-    <section id="collection" className="bg-paper-2 py-20 lg:py-28">
+    <section id="collection" className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="max-w-2xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-accent">
-            The Collection
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-accent">Collection</p>
+          <h2 className="font-serif text-4xl text-ink sm:text-5xl">Styled by edit</h2>
+          <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-soft">
+            Four edits to simplify your wardrobe. From festive evenings to everyday essentials, each
+            category is curated to pair beautifully together.
           </p>
-          <h2 className="font-serif text-4xl text-ink sm:text-5xl">Shop by category</h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((category, index) => {
-            const Icon = category.icon;
-            return (
-              <Reveal key={category.id} delay={index * 60}>
-                <a
-                  href={`#shop`}
-                  className="group flex h-full flex-col rounded-3xl border border-line bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-line-strong hover:shadow-[0_30px_60px_-35px_rgba(33,29,26,0.4)]"
-                >
-                  <span className="flex h-13 w-13 items-center justify-center rounded-2xl bg-accent-soft p-3.5 text-accent">
-                    <Icon className="h-6 w-6" strokeWidth={1.5} />
-                  </span>
-                  <h3 className="mt-6 font-serif text-xl text-ink">{category.label}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
-                    {category.description}
-                  </p>
-                  <p className="mt-5 text-xs uppercase tracking-widest text-muted">
-                    {category.count}
-                  </p>
-                </a>
-              </Reveal>
-            );
-          })}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          {categories.map((category, index) => (
+            <Reveal key={category.id} delay={index * 60}>
+              <a
+                href="#shop"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <img
+                    src={images[category.id]}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-paper/70" />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-serif text-xl text-ink">{category.label}</h3>
+                  <p className="mt-1 text-sm text-muted">{category.description}</p>
+                  <p className="mt-3 text-xs text-accent">{category.count}</p>
+                </div>
+              </a>
+            </Reveal>
+          ))}
         </div>
-
-        <Reveal delay={100} className="mt-10 text-center">
-          <a
-            href={waLink(`Hello ${brand.name}! I'd like help choosing something from the collection.`)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-strong"
-          >
-            Not sure where to start? Ask us on WhatsApp →
-          </a>
-        </Reveal>
       </div>
     </section>
   );

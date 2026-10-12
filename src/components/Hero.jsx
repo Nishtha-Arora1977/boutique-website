@@ -1,74 +1,57 @@
-import { ArrowRight, ArrowUpRight, Shirt, ShoppingBag, Gem } from 'lucide-react';
-import ProductArt from './ProductArt';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { brand } from '../data/shop';
+import { hero } from '../data/images';
 import { waLink } from '../lib/whatsapp';
-
-const cards = [
-  { icon: Shirt, tone: ['#eecfc6', '#f6e3dc'] },
-  { icon: Gem, tone: ['#efe0c4', '#f7edda'] },
-  { icon: ShoppingBag, tone: ['#dce5d6', '#ecf0e2'] },
-];
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-16 pb-20 lg:pt-20 lg:pb-24">
+    <section id="home" className="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-28">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-32 right-[-10%] h-[26rem] w-[26rem] rounded-full bg-accent-soft/70 blur-[110px]" />
-        <div className="absolute bottom-0 left-[-15%] h-80 w-80 rounded-full bg-paper-2 blur-[90px]" />
+        <img src={hero} alt="" aria-hidden="true" className="h-full w-full object-cover object-[50%_35%]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-paper/20 via-paper/80 to-paper" />
+        <div className="absolute -left-24 top-0 h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-[120px]" />
+        <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-accent/8 blur-[90px]" />
       </div>
 
-      <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-[1.05fr_1fr]">
-        <div>
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="max-w-2xl">
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-accent">
-            Online boutique · Women&apos;s clothing & accessories
+            New collection
           </p>
-          <h1 className="text-balance font-serif text-5xl leading-[1.05] text-ink sm:text-6xl lg:text-[4rem]">
-            {brand.tagline.split(',')[0]},
+          <h1 className="text-balance font-serif text-5xl leading-[1.05] text-ink sm:text-6xl lg:text-[5rem]">
+            {brand.name}
             <br />
-            <span className="italic text-accent">made to be lived in.</span>
+            <span className="italic text-accent">quiet luxury in motion.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted">
-            Curated clothing, jewellery and essentials — designed for comfort, finished with care,
-            and packed by hand. Browse the gallery, then order in under a minute on WhatsApp.
+          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
+            {brand.tagline} Carefully edited silhouettes, refined fabrics and timeless details —
+            chosen to live seamlessly in your wardrobe.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#shop"
-              className="group inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-paper transition-all hover:bg-accent-strong"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-paper transition-all hover:bg-accent-strong"
             >
-              Shop the collection
+              Explore the collection
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href={waLink(`Hello ${brand.name}! I'd like to ask about the new collection.`)}
+              href={waLink(`Hello ${brand.name}! I'd like to see the latest arrivals.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full border border-line-strong bg-white/70 px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:border-ink"
+              className="group inline-flex items-center gap-2 rounded-full border border-line-strong px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:border-accent"
             >
-              Order on WhatsApp
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <MessageCircle className="h-4 w-4 text-accent" />
+              Enquire on WhatsApp
             </a>
           </div>
 
           <div className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-            <span>Made-to-order pieces</span>
-            <span>Free shipping over ₹2,000</span>
-            <span>Order directly on WhatsApp</span>
+            <span>Complimentary shipping on ₹2,000+</span>
+            <span>Secure WhatsApp ordering</span>
+            <span>Hand-picked &amp; curated</span>
           </div>
-        </div>
-
-        <div className="grid grid-cols-3 gap-4">
-          {cards.map((card, index) => (
-            <ProductArt
-              key={index}
-              icon={card.icon}
-              tone={card.tone}
-              className={`aspect-[3/4] rounded-2xl shadow-[0_25px_50px_-30px_rgba(33,29,26,0.45)] ${
-                index === 1 ? 'lg:-translate-y-6' : ''
-              }`}
-            />
-          ))}
         </div>
       </div>
     </section>

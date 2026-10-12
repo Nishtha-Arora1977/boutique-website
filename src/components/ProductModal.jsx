@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { X, MessageCircle } from 'lucide-react';
-import ProductArt from './ProductArt';
 import { formatPrice, orderMessage } from '../data/shop';
+import { products as productImages } from '../data/images';
 import { waLink } from '../lib/whatsapp';
 
 export default function ProductModal({ product, onClose }) {
@@ -25,12 +25,12 @@ export default function ProductModal({ product, onClose }) {
       role="dialog"
       aria-modal="true"
       aria-label={`${product.name} details`}
-      className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/50 p-0 backdrop-blur-sm sm:items-center sm:p-6"
+      className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/70 p-0 backdrop-blur-sm sm:items-center sm:p-6"
       onClick={onClose}
     >
       <div
         onClick={(event) => event.stopPropagation()}
-        className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-paper sm:rounded-3xl"
+        className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-surface sm:rounded-3xl"
       >
         <div className="flex items-center justify-between border-b border-line px-6 py-4 sm:px-8">
           <p className="text-xs uppercase tracking-[0.22em] text-muted">Product details</p>
@@ -45,7 +45,14 @@ export default function ProductModal({ product, onClose }) {
         </div>
 
         <div className="grid gap-8 p-6 sm:grid-cols-2 sm:p-8">
-          <ProductArt icon={product.icon} tone={product.tone} className="aspect-[3/4] w-full rounded-2xl border border-line" />
+          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-line">
+            <img
+              src={productImages[product.id]}
+              alt=""
+              aria-hidden="true"
+              className="h-full w-full object-cover"
+            />
+          </div>
 
           <div className="flex flex-col">
             <p className="text-xs uppercase tracking-widest text-muted">{product.category}</p>
@@ -58,7 +65,7 @@ export default function ProductModal({ product, onClose }) {
                 href={waLink(orderMessage(product))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-whatsapp-strong"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-accent-strong"
               >
                 <MessageCircle className="h-4 w-4" />
                 Order this on WhatsApp

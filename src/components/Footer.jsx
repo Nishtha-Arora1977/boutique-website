@@ -3,6 +3,7 @@ import { brand } from '../data/shop';
 import { waLink } from '../lib/whatsapp';
 
 const links = [
+  { label: 'Home', href: '#home' },
   { label: 'Collection', href: '#collection' },
   { label: 'Shop', href: '#shop' },
   { label: 'Our Story', href: '#story' },
@@ -10,7 +11,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="border-t border-line bg-paper py-14">
+    <footer className="border-t border-line bg-paper py-14">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
@@ -18,12 +19,12 @@ export default function Footer() {
               {brand.name}
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              Elegant clothing and accessories, made to order and delivered with care.
+              {brand.tagline} Elegant pieces for a refined, modern wardrobe.
             </p>
           </div>
 
           <nav aria-label="Footer">
-            <p className="text-xs uppercase tracking-widest text-muted">Browse</p>
+            <p className="text-xs uppercase tracking-widest text-muted">Explore</p>
             <ul className="mt-4 space-y-2">
               {links.map((link) => (
                 <li key={link.href}>
@@ -35,23 +36,25 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <div>
-            <p className="text-xs uppercase tracking-widest text-muted">Ordering</p>
+          <div id="contact">
+            <p className="text-xs uppercase tracking-widest text-muted">Contact</p>
             <div className="mt-4 space-y-3">
               <a
-                href={waLink(`Hello ${brand.name}! I'd like to place an order.`)}
+                href={waLink(`Hello ${brand.name}! I'd like to know more about your collection.`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-ink-soft hover:text-accent"
               >
                 <MessageCircle className="h-4 w-4 text-accent" />
-                Order on WhatsApp
+                WhatsApp us
               </a>
-              <a href={`mailto:${brand.email}`} className="flex items-center gap-3 text-sm text-ink-soft hover:text-accent">
+              <a
+                href={`mailto:${brand.email}`}
+                className="flex items-center gap-3 text-sm text-ink-soft hover:text-accent"
+              >
                 <Mail className="h-4 w-4 text-accent" />
                 {brand.email}
               </a>
-              <p className="text-sm text-muted">Replies within a working day.</p>
             </div>
           </div>
         </div>

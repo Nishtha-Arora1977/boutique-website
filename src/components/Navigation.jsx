@@ -31,12 +31,14 @@ export default function Navigation() {
 
   return (
     <>
-      <div className="bg-ink px-4 py-2.5 text-center text-xs text-paper/90">
+      <div className="bg-accent/20 px-4 py-2.5 text-center text-xs text-ink-soft">
         Complimentary shipping on orders above ₹2,000 · Every piece carefully packed
       </div>
       <header
-        className={`sticky top-0 z-50 w-full border-b transition-all duration-500 ${
-          scrolled ? 'border-line bg-paper/90 backdrop-blur-xl' : 'border-transparent bg-paper'
+        className={`sticky top-0 z-50 w-full border-b backdrop-blur-xl transition-all duration-500 ${
+          scrolled
+            ? 'border-line bg-paper/80 backdrop-saturate-150'
+            : 'border-transparent bg-transparent'
         }`}
       >
         <nav aria-label="Primary" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:h-20">
@@ -49,7 +51,7 @@ export default function Navigation() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm font-medium text-muted transition-colors hover:text-ink after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full relative"
+                  className="relative text-sm font-medium text-muted transition-colors hover:text-ink after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {link.label}
                 </a>
@@ -62,7 +64,7 @@ export default function Navigation() {
               href={waLink(`Hello ${brand.name}! I'd like to know more about your collection.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-whatsapp-strong"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-accent-strong"
             >
               <MessageCircle className="h-4 w-4" />
               Order on WhatsApp
@@ -101,7 +103,7 @@ export default function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3.5 text-sm font-medium text-white"
+                  className="flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-3.5 text-sm font-medium text-paper"
                 >
                   <MessageCircle className="h-4 w-4" />
                   Order on WhatsApp

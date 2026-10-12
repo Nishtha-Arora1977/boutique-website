@@ -1,14 +1,3 @@
-import {
-  Sparkles,
-  Shirt,
-  ShoppingBag,
-  Gem,
-  Flower2,
-  Waves,
-  Footprints,
-  Gift,
-} from 'lucide-react';
-
 export const brand = {
   name: 'Maison Élise',
   tagline: 'Timeless pieces, made for everyday elegance.',
@@ -20,28 +9,30 @@ export const categories = [
     id: 'women',
     label: 'Women',
     description: 'Daily and occasion wear, designed to be lived in.',
-    icon: Shirt,
     count: '21 pieces',
   },
   {
     id: 'ethnic',
     label: 'Ethnic Wear',
     description: 'Festive kurtas, sets and handcrafted prints.',
-    icon: Flower2,
     count: '16 pieces',
+  },
+  {
+    id: 'western',
+    label: 'Western Wear',
+    description: 'Satin, denim, shirts and essentials for every day.',
+    count: '18 pieces',
   },
   {
     id: 'accessories',
     label: 'Accessories',
     description: 'Bags, jewellery and scarves to finish every look.',
-    icon: ShoppingBag,
     count: '12 pieces',
   },
   {
     id: 'footwear',
     label: 'Footwear',
     description: 'Soft, handcrafted sandals made for long days.',
-    icon: Footprints,
     count: '8 pieces',
   },
 ];
@@ -52,8 +43,6 @@ export const products = [
     name: 'Silk Evening Dress',
     category: 'Women',
     price: 2499,
-    tone: ['#eecfc6', '#f6e3dc'],
-    icon: Sparkles,
     tagline: 'Softly draped A-line in breathable silk-blend.',
     description:
       'A flowing A-line silhouette with a soft drape and delicate slip lining. Cut to move with you from dinner to dance floor.',
@@ -63,19 +52,51 @@ export const products = [
     name: 'Indigo Kurta & Palazzo Set',
     category: 'Ethnic Wear',
     price: 1299,
-    tone: ['#dfe0ee', '#eef0f6'],
-    icon: Shirt,
     tagline: 'Classic indigo set with hand-block print.',
     description:
       'A relaxed kurta paired with wide-leg palazzos. Hand-block printed in breathable cotton with natural indigo dye.',
+  },
+  {
+    id: 'satin-slip-dress',
+    name: 'Satin Slip Dress',
+    category: 'Western Wear',
+    price: 1599,
+    tagline: 'Minimal, sleek and made to dress up or down.',
+    description:
+      'A bias-cut satin slip with a cowl neckline. Soft, light, and easy to layer over a tee or under a blazer.',
+  },
+  {
+    id: 'crisp-white-shirt',
+    name: 'Crisp White Shirt',
+    category: 'Western Wear',
+    price: 1299,
+    tagline: 'Clean tailoring that works for any day.',
+    description:
+      'A classic button-down with a relaxed fit and sharp finish. Easy to tuck in or leave open over a camisole.',
+  },
+  {
+    id: 'off-duty-denim',
+    name: 'Off-Duty Denim',
+    category: 'Western Wear',
+    price: 1799,
+    tagline: 'High-rise, straight leg and endlessly wearable.',
+    description:
+      'Soft-washed denim with just the right amount of stretch. A staple you’ll wear on repeat.',
+  },
+  {
+    id: 'boyfriend-shirt',
+    name: 'Relaxed Boyfriend Shirt',
+    category: 'Western Wear',
+    price: 1199,
+    tagline: 'Overshirt ease with a polished finish.',
+    description:
+      'Dropped shoulders and a longline cut in crisp cotton. Looks just as good worn open as it does buttoned up.',
   },
   {
     id: 'handwoven-straw-tote',
     name: 'Handwoven Straw Tote',
     category: 'Accessories',
     price: 1799,
-    tone: ['#ede3c8', '#f6efdd'],
-    icon: ShoppingBag,
     tagline: 'Room for everything, softened by hand.',
     description:
       'A generous woven tote with internal pockets and a cotton lining. Woven by hand from natural straw and finished with leather straps.',
@@ -85,8 +106,6 @@ export const products = [
     name: 'Statement Gold Necklace',
     category: 'Accessories',
     price: 899,
-    tone: ['#efe0c4', '#f7edda'],
-    icon: Gem,
     tagline: 'A quiet, glossy accent for any neckline.',
     description:
       'An oxidised-gold statement piece with a secure clasp. Lightweight and easy to pair with both formal and casual looks.',
@@ -96,8 +115,6 @@ export const products = [
     name: 'Bandhani Cotton Scarf',
     category: 'Accessories',
     price: 649,
-    tone: ['#e6d9cf', '#f2e9e0'],
-    icon: Flower2,
     tagline: 'A breath of tradition in pure cotton.',
     description:
       'A traditional bandhani tie-dye scarf in soft, pure cotton. Finished with hand-rolled edges and a subtle fringe.',
@@ -107,8 +124,6 @@ export const products = [
     name: 'Pastel Chiffon Blouse',
     category: 'Women',
     price: 999,
-    tone: ['#eacfd4', '#f7e8ea'],
-    icon: Waves,
     tagline: 'Sheer, light and endlessly wearable.',
     description:
       'A featherweight chiffon blouse with covered buttons and easy drape. Lined for comfort with a camisole-safe slit neckline.',
@@ -118,8 +133,6 @@ export const products = [
     name: 'Tan Leather Sandals',
     category: 'Footwear',
     price: 1499,
-    tone: ['#e3d2c3', '#efe4d8'],
-    icon: Footprints,
     tagline: 'Soft, everyday comfort in genuine leather.',
     description:
       'A cushioned flat sandal in soft tan leather with an adjustable ankle strap and a flexible, non-slip sole.',
@@ -129,8 +142,6 @@ export const products = [
     name: 'Embroidered Pouch Set',
     category: 'Accessories',
     price: 799,
-    tone: ['#dce5d6', '#ecf0e2'],
-    icon: Gift,
     tagline: 'Three sizes, one keepsake finish.',
     description:
       'A set of three quilted pouches in discreet hand embroidery. Perfect for cosmetics, stationery, or a pretty gift.',
