@@ -1,7 +1,7 @@
 import { MessageCircle } from 'lucide-react';
 import Reveal from './Reveal';
 import ProductModal from './ProductModal';
-import { products, formatPrice, orderMessage } from '../data/shop';
+import { products, formatPrice, orderMessage, brand } from '../data/shop';
 import { products as productImages } from '../data/images';
 import { waLink } from '../lib/whatsapp';
 import { useState } from 'react';
