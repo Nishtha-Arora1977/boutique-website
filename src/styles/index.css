@@ -2,17 +2,17 @@
 @source '../**/*.{js,jsx}';
 
 :root {
-  --paper: #fdf9f4;
-  --paper-2: #f8f1e7;
-  --surface: #ffffff;
-  --ink: #2e2118;
-  --ink-soft: #5c4a3a;
-  --muted: #96826f;
-  --line: #ecdfd0;
-  --line-strong: #dcc9b4;
-  --accent: #c46b4a;
-  --accent-strong: #a85436;
-  --accent-soft: #f7e5da;
+  --paper: #0a0a0a;
+  --paper-2: #101010;
+  --surface: #161616;
+  --ink: #f2ede4;
+  --ink-soft: #d6cec2;
+  --muted: #8f887c;
+  --line: rgba(242, 237, 228, 0.12);
+  --line-strong: rgba(242, 237, 228, 0.28);
+  --accent: #d4764f;
+  --accent-strong: #e08a63;
+  --accent-soft: rgba(212, 118, 79, 0.14);
   --whatsapp: #22c55e;
   --whatsapp-strong: #16a34a;
 }
@@ -45,7 +45,6 @@
     background: var(--paper);
     color: var(--ink);
     font-family: var(--font-sans);
-    font-feature-settings: 'ss01';
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -57,8 +56,8 @@
   h4 {
     font-family: var(--font-serif);
     font-weight: 500;
-    line-height: 1.15;
-    letter-spacing: -0.015em;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
   }
 
   section {
@@ -66,8 +65,8 @@
   }
 
   ::selection {
-    background: var(--accent-soft);
-    color: var(--ink);
+    background: var(--accent);
+    color: var(--paper);
   }
 
   :focus-visible {
@@ -95,5 +94,23 @@
 
   .text-pretty {
     text-wrap: pretty;
+  }
+
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--line-strong);
+  }
+
+  .animate-marquee {
+    animation: marquee 24s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }

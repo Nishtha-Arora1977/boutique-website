@@ -1,45 +1,57 @@
+import { ArrowUpRight } from 'lucide-react';
 import Reveal from './Reveal';
 import { categories } from '../data/shop';
 import { categories as images } from '../data/images';
 
 export default function Categories() {
   return (
-    <section id="collection" className="py-20 lg:py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <Reveal className="max-w-2xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-accent">Collection</p>
-          <h2 className="font-serif text-4xl text-ink sm:text-5xl">Styled by edit</h2>
-          <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-soft">
-            Four edits to simplify your wardrobe. From festive evenings to everyday essentials, each
-            category is curated to pair beautifully together.
+    <section id="collection" className="px-6 py-20 sm:px-10 lg:py-28 lg:pl-14 lg:pr-16">
+      <Reveal className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
+            N°02 — Collection
           </p>
-        </Reveal>
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {categories.map((category, index) => (
-            <Reveal key={category.id} delay={index * 60}>
-              <a
-                href="#shop"
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <img
-                    src={images[category.id]}
-                    alt=""
-                    aria-hidden="true"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-paper/70" />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-serif text-xl text-ink">{category.label}</h3>
-                  <p className="mt-1 text-sm text-muted">{category.description}</p>
-                  <p className="mt-3 text-xs text-accent">{category.count}</p>
-                </div>
-              </a>
-            </Reveal>
-          ))}
+          <h2 className="font-serif text-4xl text-ink sm:text-5xl">Shop by edit</h2>
         </div>
+        <p className="max-w-sm text-sm leading-relaxed text-muted">
+          Five curated edits. Hover a row to preview, click to jump straight into the shop.
+        </p>
+      </Reveal>
+
+      <div className="mt-10 border-t border-line">
+        {categories.map((category, index) => (
+          <Reveal key={category.id} delay={index * 40}>
+            <a
+              href="#shop"
+              className="group flex items-center justify-between gap-6 border-b border-line py-6 transition-colors hover:bg-paper-2 sm:py-7"
+            >
+              <div className="flex items-baseline gap-5 sm:gap-8">
+                <span className="text-xs text-accent">0{index + 1}</span>
+                <div>
+                  <h3 className="font-serif text-2xl text-ink transition-all duration-300 group-hover:translate-x-2 group-hover:text-accent sm:text-3xl">
+                    {category.label}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted">{category.description}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-5">
+                <span className="hidden text-xs uppercase tracking-[0.2em] text-muted sm:block">
+                  {category.count}
+                </span>
+                <img
+                  src={images[category.id]}
+                  alt=""
+                  aria-hidden="true"
+                  className="hidden h-20 w-16 rounded-none object-cover opacity-70 transition-opacity duration-300 group-hover:opacity-100 md:block"
+                />
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink transition-colors group-hover:border-accent group-hover:text-accent">
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
+              </div>
+            </a>
+          </Reveal>
+        ))}
       </div>
     </section>
   );
