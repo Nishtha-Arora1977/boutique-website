@@ -2,17 +2,17 @@
 @source '../**/*.{js,jsx}';
 
 :root {
-  --paper: #faf7f2;
-  --paper-2: #f4efe7;
+  --paper: #fdf9f4;
+  --paper-2: #f8f1e7;
   --surface: #ffffff;
-  --ink: #211d1a;
-  --ink-soft: #4c453e;
-  --muted: #7a7167;
-  --line: #e7dfd3;
-  --line-strong: #d8cdbd;
-  --accent: #a3533f;
-  --accent-strong: #7d3c2d;
-  --accent-soft: #f4e4de;
+  --ink: #2e2118;
+  --ink-soft: #5c4a3a;
+  --muted: #96826f;
+  --line: #ecdfd0;
+  --line-strong: #dcc9b4;
+  --accent: #c46b4a;
+  --accent-strong: #a85436;
+  --accent-soft: #f7e5da;
   --whatsapp: #22c55e;
   --whatsapp-strong: #16a34a;
 }
